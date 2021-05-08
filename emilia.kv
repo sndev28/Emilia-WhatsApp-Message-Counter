@@ -1,0 +1,52 @@
+#:kivy 2.0
+
+BoxLayout:
+    orientation:'vertical'
+    padding: 20
+    spacing: 20
+
+    Button:
+        id: start
+        text: 'Start!'
+        size_hint_x: .3
+        pos_hint: {'center_x':.5}
+        on_press: app.start()
+        disabled: False
+
+    
+    Label:
+        text: 'Scan QR code using Whatsapp Web option in Whatsapp. \nOpen the conversation of which messages are to be backed up or counted. \nThen click OK!'
+        multiline: True
+        halign: 'center'
+        pos_hint: {'center_x':.5}
+
+
+    BoxLayout:
+        orientation:'horizontal'
+        pos_hint: {'center_x':.5}
+        size_hint_x: .5
+
+        Label:
+            text: 'Do you want to save messages?'
+
+        Switch:
+            id: save_message
+            on_active: app.save(self, self.active)
+            disabled: True
+
+    
+
+    Button:
+        id: ok
+        text: 'Ok!'
+        size_hint_x: .3
+        pos_hint: {'center_x':.5}
+        on_press: app.ok()
+        disabled: True
+
+    Label:
+        id: progress
+        text: 'Not Started!'
+
+
+    
